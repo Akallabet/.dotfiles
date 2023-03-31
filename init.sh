@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Create a backup of .config if exists
+if [ -d ~/.config ]
+then
+	cp ~/.config ~/.config.bak
+fi
+
 # Install Homebrew if not exists
 if ! command -v brew &> /dev/null
 then
