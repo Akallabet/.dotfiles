@@ -12,12 +12,15 @@ then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Install stow if not exists
 if ! command -v stow &> /dev/null
 then
 	brew install stow
 fi
 
+cd ~/.dotfiles
 stow nvim
 stow zsh
 
@@ -35,9 +38,6 @@ if ! command -v rg &> /dev/null
 then
 	brew install ripgrep
 fi
-
-brew tap homebrew/cask-fonts
-brew install font-hack-nerd-font
 
 # Install nodenv if not exists
 if ! command -v nodenv &> /dev/null

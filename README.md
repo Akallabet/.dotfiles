@@ -1,13 +1,9 @@
 # Dotfiles
 
-## Install oh-my-zsh
+# Installation
 ```
-git submodule update --init
-```
-
-## Install Homebrew
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+cd ~
+./.dotfiles/init.sh
 ```
 
 ## Ansible
@@ -17,15 +13,6 @@ Make sure phython3 is installed, then
 ```
 curl https://bootstrap.pypa.io/get-pip.py | python3
 ```
-
-## Install nodenv
-```
-brev install nodenv
-```
-
-## Neovim
-
-You need to instal `nvim` and `ripgrep`
 
 ## Web fonts
 
