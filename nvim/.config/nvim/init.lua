@@ -544,7 +544,7 @@ cmp.setup {
 -- Neoformat config
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {"*.js","*.ts","*.tsx","*.json", "*.css",".html"},
+  pattern = {"*.js","*.jsx","*.ts","*.tsx","*.json", "*.css",".html"},
   command = 'undojoin | silent Neoformat'
 })
 
