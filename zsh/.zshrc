@@ -83,6 +83,16 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+CUSTOM=custom.sh
+if test -f "$CUSTOM"; then 
+	source $CUSTOM
+fi
+
+# Aliases
+
+# bash
+alias lla="ls -la"
+
 # ykman
 alias yklist="ykman oath accounts list"
 alias ykadd="ykman oath accounts add"
@@ -94,4 +104,5 @@ alias nodenv-update="brew upgrade nodenv node-build"
 # git
 alias gca="git add --all && git commit -m"
 
+# Brew
 alias update-world="brew update; brew upgrade"
