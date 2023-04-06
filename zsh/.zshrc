@@ -4,7 +4,16 @@
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+HOMEBREW_PATH_INTEL="/url/local/Homebrew/bin/brew"
+HOMEBREW_PATH_M1="/opt/homebrew/bin/brew"
+
+if test -f "$HOMEBREW_PATH_INTEL"; then 
+	eval "$($HOMEBREW_PATH_INTEL shellenv)"
+fi
+
+if test -f "$HOMEBREW_PATH_M1"; then 
+	eval "$($HOMEBREW_PATH_M1 shellenv)"
+fi
 
 # nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
