@@ -115,3 +115,6 @@ alias gca="git add --all && git commit -m"
 
 # Brew
 alias update-world="brew update; brew upgrade"
+
+# Neovim
+alias vim="nvim"
