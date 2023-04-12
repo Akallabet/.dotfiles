@@ -391,6 +391,10 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
+-- Fugitive
+-- require('tpope/vim-fugitive')
+vim.keymap.set('n', '<leader>gs',vim.cmd.Git, { desc = "Git status" })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
