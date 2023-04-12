@@ -112,6 +112,9 @@ alias nodenv-update="brew upgrade nodenv node-build"
 
 # git
 alias gca="git add --all && git commit -m"
+alias gco="git checkout"
+alias gps="git push"
+alias gpl="git push"
 
 # Brew
 alias update-world="brew update; brew upgrade"
