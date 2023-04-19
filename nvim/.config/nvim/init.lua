@@ -182,6 +182,7 @@ require('lazy').setup({
       "MunifTanjim/nui.nvim",
     },
   },
+  {'Olical/conjure'},
 
   {
     'akinsho/bufferline.nvim'
