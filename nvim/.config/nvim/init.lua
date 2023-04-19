@@ -461,6 +461,7 @@ local servers = {
   yamlls = {},
   tsserver = {},
   eslint = {},
+  cssls = {},
 
   lua_ls = {
     Lua = {
