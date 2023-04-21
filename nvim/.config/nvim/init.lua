@@ -35,7 +35,6 @@ I hope you enjoy your Neovim journey,
 
 P.S. You can delete this when you're done too. It's your config now :)
 --]]
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -75,7 +74,8 @@ require('lazy').setup({
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
-  { -- LSP Configuration & Plugins
+  {
+    -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
@@ -91,14 +91,16 @@ require('lazy').setup({
     },
   },
 
-  { -- Autocompletion
+  {
+    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
-  { -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  { 'folke/which-key.nvim',          opts = {} },
+  {
+    -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -112,7 +114,8 @@ require('lazy').setup({
     },
   },
 
-  { -- Theme inspired by Atom
+  {
+    -- Theme inspired by Atom
     'rose-pine/neovim',
     priority = 1000,
     config = function()
@@ -120,7 +123,8 @@ require('lazy').setup({
     end,
   },
 
-  { -- Set lualine as statusline
+  {
+    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
@@ -133,7 +137,8 @@ require('lazy').setup({
     },
   },
 
-  { -- Add indentation guides even on blank lines
+  {
+    -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
@@ -144,7 +149,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',         opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -162,7 +167,8 @@ require('lazy').setup({
     end,
   },
 
-  { -- Highlight, edit, and navigate code
+  {
+    -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -171,8 +177,9 @@ require('lazy').setup({
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
+  { 'nvim-treesitter/playground' },
 
-  {'sbdchd/neoformat'},
+  { 'sbdchd/neoformat' },
 
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -182,7 +189,7 @@ require('lazy').setup({
       "MunifTanjim/nui.nvim",
     },
   },
-  {'Olical/conjure'},
+  { 'Olical/conjure' },
 
   {
     'akinsho/bufferline.nvim'
@@ -216,6 +223,8 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {})
 
+require('custom.remaps')
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
@@ -225,7 +234,7 @@ vim.o.hlsearch = true
 -- Make line numbers default
 vim.wo.number = true
 
-vim.o.relativenumber= true
+vim.o.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -261,23 +270,6 @@ vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remove hlsearch
-vim.keymap.set({ 'n', 'v' }, '<leader><CR>', ':noh<CR>', { silent = true })
-
--- Paste with black hole
-vim.keymap.set({ 'n', 'v' }, '<leader>p', '"_dP', { silent = true })
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Pairing mode
-vim.keymap.set({ 'n', 'v' }, '<leader>ln',function() vim.o.relativenumber = not vim.o.relativenumber end, { silent = true })
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -298,39 +290,19 @@ require('telescope').setup {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
-    }, 
+    },
   },
 }
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
--- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
-
-vim.keymap.set('n', '<leader>ff', function()
-  require('telescope.builtin').find_files({
-    find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
-  })
-end, { desc = '[F]ind [F]iles' })
-vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
-vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
-vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
-
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'lua', 'python', 'rust', 'clojure', 'javascript', 'tsx', 'typescript', 'json', 'yaml', 'bash', 'hcl', 'help', 'vim' },
+  ensure_installed = { 'c', 'lua', 'python', 'clojure', 'javascript', 'tsx', 'typescript', 'json', 'yaml', 'bash',
+    'help', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -392,15 +364,6 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- Fugitive
--- require('tpope/vim-fugitive')
-vim.keymap.set('n', '<leader>gs',vim.cmd.Git, { desc = "Git status" })
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -463,7 +426,6 @@ local servers = {
   tsserver = {},
   eslint = {},
   cssls = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -550,7 +512,7 @@ cmp.setup {
 -- Neoformat config
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {"*.js","*.jsx","*.ts","*.tsx","*.json", "*.css",".html"},
+  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", ".html" },
   command = 'undojoin | silent Neoformat'
 })
 
@@ -571,16 +533,6 @@ require("neo-tree").setup({
     },
   },
 })
-
-vim.keymap.set({'n', 'v'}, '<leader>n', ':Neotree toggle<CR>', { silent = true })
-
--- Bufferline
-require('bufferline').setup({})
-vim.keymap.set({'n', 'v'}, 'H', ':BufferLineCyclePrev<CR>', { silent = true })
-vim.keymap.set({'n', 'v'}, 'L', ':BufferLineCycleNext<CR>', { silent = true })
-
--- Bufdelete
-vim.keymap.set({'n', 'v'}, '<leader>bc', ':Bwipeout<CR>', { silent = true })
 
 -- Copilot
 -- require('copilot').setup({
