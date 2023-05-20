@@ -247,6 +247,10 @@ vim.o.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Number of spaces that a <Tab> in the file counts for
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+
 -- Save undo history
 vim.o.undofile = true
 
