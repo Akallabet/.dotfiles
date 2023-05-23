@@ -223,7 +223,7 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {})
 
-require('mappings')
+require('mappings').setup()
 require('settings').setup()
 
 -- [[ Basic Keymaps ]]
