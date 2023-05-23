@@ -223,7 +223,7 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {})
 
-require('custom.remaps')
+require('mappings')
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
