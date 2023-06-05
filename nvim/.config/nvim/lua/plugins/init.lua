@@ -39,10 +39,8 @@ return {
       show_trailing_blankline_indent = false,
     },
   },
-
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
-  { 'sbdchd/neoformat' },
   {
     'nvim-neo-tree/neo-tree.nvim',
     version = "v2.x",
