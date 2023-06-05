@@ -1,6 +1,5 @@
 return {
   setup = function()
-
     -- Neoformat config
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", ".html" },
@@ -23,10 +22,5 @@ return {
         },
       },
     })
-
-    -- Copilot
-    -- require('copilot').setup({
-    --   enable = true,
-    -- })
   end
 }
