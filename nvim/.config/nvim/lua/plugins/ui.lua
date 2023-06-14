@@ -69,19 +69,19 @@ return {
   {
     'akinsho/bufferline.nvim'
   },
-  {
-    "romgrk/barbar.nvim",
-    event = "BufRead",
-    dependencies = {
-      nvim_web_devicons
-    },
-    cmd = {
-      "BufferClose",
-      "BufferPrevious",
-      "BufferNext",
-    },
-  },
-  {
-    'famiu/bufdelete.nvim'
-  },
+  -- {
+  --   "romgrk/barbar.nvim",
+  --   event = "BufRead",
+  --   dependencies = {
+  --     nvim_web_devicons
+  --   },
+  --   cmd = {
+  --     "BufferClose",
+  --     "BufferPrevious",
+  --     "BufferNext",
+  --   },
+  -- },
+  -- {
+  --   'famiu/bufdelete.nvim'
+  -- },
 }
