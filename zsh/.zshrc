@@ -92,7 +92,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-CUSTOM=custom.sh
+CUSTOM=.custom.sh
 if test -f "$CUSTOM"; then 
 	source $CUSTOM
 fi
