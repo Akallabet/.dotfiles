@@ -2,12 +2,12 @@ return
 {
   -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
-  'nvim-treesitter/playground',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
+  build = ':TSUpdate',
   config = function()
-    pcall(require('nvim-treesitter.install').update { with_sync = true })
+    -- pcall(require('nvim-treesitter.install').update { with_sync = true })
     require('nvim-treesitter.configs').setup {
       -- Add languages to be installed here that you want installed for treesitter
       ensure_installed = { 'c', 'lua', 'python', 'clojure', 'javascript', 'tsx', 'typescript', 'json', 'yaml', 'bash',
