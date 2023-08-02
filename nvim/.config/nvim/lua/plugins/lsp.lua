@@ -137,6 +137,7 @@ return {
       terraformls = {},
       yamlls = {},
       tsserver = {},
+      tailwindcss = {},
       eslint = {},
       cssls = {},
       lua_ls = {
