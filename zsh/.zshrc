@@ -121,3 +121,7 @@ alias update-world="brew update; brew upgrade"
 
 # Neovim
 alias vim="nvim"
+
+# postgresql
+export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
