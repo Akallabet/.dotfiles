@@ -99,6 +99,9 @@ fi
 
 # Aliases
 
+# npm
+alias npmi="rm -rf node_modules && npm i"
+
 # bash
 alias lla="ls -la"
 
