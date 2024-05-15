@@ -140,6 +140,13 @@ return {
       tailwindcss = {},
       eslint = {},
       cssls = {},
+      stylelint_lsp = {
+        stylelintplus = {
+          config = {
+            filetypes = { 'css', 'scss', 'sass', 'less', 'stylus' },
+          },
+        },
+      },
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
