@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Create a backup of .config if exists
+# Create a backup of .config if it already exists
 if [ -d ~/.config ]
 then
 	cp ~/.config ~/.config.bak
@@ -14,7 +14,7 @@ fi
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Install stow if not exists
+# Install stow if it doesn't exist
 if ! command -v stow &> /dev/null
 then
 	brew install stow
@@ -27,19 +27,19 @@ stow zsh
 # Install oh-my-zsh
 git submodule update --init
 
-# Install nvim if not exists
+# Install nvim if it doesn't exist
 if ! command -v nvim &> /dev/null
 then
 	brew install neovim
 fi
 
-# Install ripgrep if not exists
+# Install ripgrep if it doesn't exist
 if ! command -v rg &> /dev/null
 then
 	brew install ripgrep
 fi
 
-# Install nodenv if not exists
+# Install nodenv if it doesn't exist
 if ! command -v nodenv &> /dev/null
 then
 	brew install nodenv
