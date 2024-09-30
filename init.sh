@@ -6,7 +6,7 @@ then
 	cp ~/.config ~/.config.bak
 fi
 
-# Install Homebrew if not exists
+# Install Homebrew if doesn't exist
 if ! command -v brew &> /dev/null
 then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -23,6 +23,7 @@ fi
 cd ~/.dotfiles
 stow nvim
 stow zsh
+stow tmux
 
 # Install oh-my-zsh
 git submodule update --init
@@ -31,6 +32,12 @@ git submodule update --init
 if ! command -v nvim &> /dev/null
 then
 	brew install neovim
+fi
+
+# Install tmux if it doesn't exist
+if ! command -v tmux &> /dev/null
+then
+	brew install tmux
 fi
 
 # Install ripgrep if it doesn't exist
