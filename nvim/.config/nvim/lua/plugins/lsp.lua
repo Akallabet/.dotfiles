@@ -137,16 +137,16 @@ return {
       terraformls = {},
       yamlls = {},
       ts_ls = {},
-      tailwindcss = {},
-      eslint = {},
-      cssls = {},
-      stylelint_lsp = {
-        stylelintplus = {
-          config = {
-            filetypes = { 'css', 'scss', 'sass', 'less', 'stylus' },
-          },
+      tailwindcss = {
+        config = {
+          filetypes = { 'html', 'css', 'scss', 'sass', 'less', 'stylus', 'javascript', 'typescript', 'vue' },
         },
       },
+      eslint = {},
+      cssls = {},
+      biome = {},
+      eslint = {},
+      cssls = {},
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
