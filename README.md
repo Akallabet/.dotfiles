@@ -16,4 +16,4 @@ brew install font-hack-nerd-font
 ```
 
 ### 3. Enable web fonts in iterm
-`Settings -> Profiles -> Text -> Non-ASCII Font`
+`Settings -> Profiles -> Text -> Non-ASCII Font -> Hack Nerd Font Mono`
