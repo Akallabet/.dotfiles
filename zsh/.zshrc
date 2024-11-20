@@ -15,9 +15,9 @@ if test -f "$HOMEBREW_PATH_M1"; then
 	eval "$($HOMEBREW_PATH_M1 shellenv)"
 fi
 
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+# nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -109,9 +109,6 @@ alias lla="ls -la"
 alias yklist="ykman oath accounts list"
 alias ykadd="ykman oath accounts add"
 alias ykcode="ykman oath accounts code"
-
-# nodenv
-alias nodenv-update="brew upgrade nodenv node-build"
 
 # git
 alias gca="git add --all && git commit -m"

@@ -47,7 +47,7 @@ then
 fi
 
 # Install nodenv if it doesn't exist
-if ! command -v nodenv &> /dev/null
+if ! command -v nvm &> /dev/null
 then
-	brew install nodenv
+	brew install nvm
 fi
