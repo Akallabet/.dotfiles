@@ -142,8 +142,6 @@ return {
           filetypes = { 'html', 'css', 'scss', 'sass', 'less', 'stylus', 'javascript', 'typescript', 'vue' },
         },
       },
-      eslint = {},
-      cssls = {},
       biome = {},
       eslint = {},
       cssls = {},
