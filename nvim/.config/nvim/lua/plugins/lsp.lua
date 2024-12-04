@@ -132,7 +132,18 @@ return {
       -- clangd = {},
       -- pyright = {},
       -- rust_analyzer = {},
-      gopls = {},
+      gopls = {
+        settings = {
+          gopls = {
+            gofumpt = true,
+            -- gofmt = true,
+            codelenses = {
+              generate = true,
+              test = true,
+            },
+          },
+        },
+      },
       clojure_lsp = {},
       terraformls = {},
       yamlls = {},
