@@ -130,9 +130,9 @@ return {
     --  the `settings` field of the server config. You must look up that documentation yourself.
     local servers = {
       -- clangd = {},
-      -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
+      gopls = {},
       clojure_lsp = {},
       terraformls = {},
       yamlls = {},
