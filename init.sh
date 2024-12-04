@@ -46,7 +46,7 @@ then
 	brew install ripgrep
 fi
 
-# Install nodenv if it doesn't exist
+# Install nvm if it doesn't exist
 if ! command -v nvm &> /dev/null
 then
 	brew install nvm
