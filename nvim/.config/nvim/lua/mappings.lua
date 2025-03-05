@@ -10,7 +10,7 @@ return {
     vim.keymap.set({ 'n', 'v' }, '<leader>p', '"_dP', { silent = true })
     vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
     vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-    vim.keymap.set({ 'n', 'v' }, '<leader>ln', function() vim.o.relativenumber = not vim.o.relativenumber end,
+    vim.keymap.set({ 'n', 'v' }, '<leader>pm', function() vim.o.relativenumber = not vim.o.relativenumber end,
       { silent = true, desc = 'Pairing mode' })
     vim.keymap.set('n', '<C-d>', '<C-d>zz')
     vim.keymap.set('n', '<C-u>', '<C-u>zz')
