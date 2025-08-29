@@ -131,7 +131,7 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@17/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/akallabeth/Library/pnpm"
+export PNPM_HOME="~/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
