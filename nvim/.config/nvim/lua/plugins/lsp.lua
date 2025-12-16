@@ -135,15 +135,13 @@ return {
     --
     --  Add any additional override configuration in the following tables. They will be passed to
     --  the `settings` field of the server config. You must look up that documentation yourself.
+    --
+    -- Using vim.lsp.config (Neovim 0.11+) instead of deprecated lspconfig framework
     local servers = {
-      -- clangd = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
       gopls = {
         settings = {
           gopls = {
             gofumpt = true,
-            -- gofmt = true,
             codelenses = {
               generate = true,
               test = true,
@@ -156,56 +154,33 @@ return {
       yamlls = {},
       ts_ls = {},
       tailwindcss = {
-        config = {
-          filetypes = { 'html', 'css', 'scss', 'sass', 'less', 'stylus', 'javascript', 'typescript', 'vue' },
-        },
+        filetypes = { 'html', 'css', 'scss', 'sass', 'less', 'stylus', 'javascript', 'typescript', 'vue' },
       },
       biome = {},
       eslint = {},
       cssls = {},
       lua_ls = {
-        Lua = {
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
+        settings = {
+          Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+          },
         },
       },
     }
 
-    local lspconfig =require('lspconfig')
+    -- Configure and enable all servers using a for loop
     for server_name, server_config in pairs(servers) do
-      lspconfig[server_name].setup {
+      vim.lsp.config(server_name, vim.tbl_deep_extend('force', {
         capabilities = capabilities,
         on_attach = on_attach,
-        settings = server_config,
-      }
+      }, server_config))
     end
-    -- [server_name].setup {
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    --   settings = servers[server_name],
-    -- }
 
+    -- Enable all configured servers
+    vim.lsp.enable(vim.tbl_keys(servers))
 
     -- Setup mason so it can manage external tooling
-    -- require('mason').setup()
-    --
-    -- -- Ensure the servers above are installed
-    -- local mason_lspconfig = require 'mason-lspconfig'
-    --
-    -- mason_lspconfig.setup {
-    --   ensure_installed = vim.tbl_keys(servers),
-    -- }
-    --
-    -- mason_lspconfig.setup_handlers {
-    --   function(server_name)
-    --     require('lspconfig')[server_name].setup {
-    --       capabilities = capabilities,
-    --       on_attach = on_attach,
-    --       settings = servers[server_name],
-    --     }
-    --   end,
-    -- }
     require("mason").setup()
-    -- require("mason-lspconfig").setup()
   end,
 }
