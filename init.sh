@@ -51,3 +51,9 @@ if ! command -v nvm &> /dev/null
 then
 	brew install nvm
 fi
+
+# Install copilot-cli if it doesn't exist
+if ! command -v copilot &> /dev/null
+then
+	brew install copilot-cli
+fi
