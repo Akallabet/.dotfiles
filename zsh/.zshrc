@@ -102,10 +102,10 @@ fi
 
 # Aliases
 
-# npm
+## npm
 alias npmi="rm -rf node_modules && npm i"
 
-# bash
+## bash
 alias lla="ls -la"
 
 # ykman
@@ -119,6 +119,7 @@ alias gco="git checkout"
 alias gps="git push"
 alias gpl="git pull"
 alias gcp="git cherry-pick"
+alias git-prune-local-branches="git branch --format='%(refname:short)' | grep -v '^main$' | xargs -r git branch -D"
 
 # Brew
 alias update-world="brew update; brew upgrade"
@@ -126,6 +127,8 @@ alias update-world="brew update; brew upgrade"
 # Neovim
 alias vim="nvim"
 
+# ENV Variables
+#
 # postgresql
 export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
@@ -142,3 +145,11 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/Users/akallabeth/.bun/_bun" ] && source "/Users/akallabeth/.bun/_bun"
+
+export CONTEXT7_API_KEY="ctx7sk-89a914b6-4f51-45bb-9be2-e1e26e219e8f"
+export GITHUB_PERSONAL_ACCESS_TOKEN=""
+export POSTGRES_CONNECTION_STRING="postgresql://akallabeth:abcde@localhost:5432/ace"
+export PATH="$HOME/.local/bin:$PATH"
