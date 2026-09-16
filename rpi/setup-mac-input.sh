@@ -85,6 +85,10 @@ leftcontrol = layer(meta)
 rightcontrol = layer(meta)
 capslock = esc
 
+# Physical Control+C sends Ctrl+C. In a terminal, this is SIGINT.
+[meta]
+c = C-c
+
 # Command+Tab switches applications using Alt+Tab.
 [control]
 tab = swapm(cmd_tab, A-tab)
