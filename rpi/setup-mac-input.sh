@@ -90,8 +90,10 @@ capslock = esc
 c = C-c
 
 # Command+Tab switches applications using Alt+Tab.
+# Command+V uses the LXTerminal text-paste shortcut.
 [control]
 tab = swapm(cmd_tab, A-tab)
+v = C-S-v
 
 [cmd_tab:A]
 tab = A-S-tab
